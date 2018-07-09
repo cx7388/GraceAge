@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Create New Older Adult</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h3 class="registration1">Create New Older Adult</h3>
+            <h:panelGrid columns="3">
+                <h:outputLabel class="registration1" value="First Name:" for="firstName" /> 
+                <h:inputText class="registration1" id="firstName" label="First Name"
+                             required="true"
+                             value="#{olderAdultRegistration.olderadult.firstname}" />
+               <h:message for="firstName" />
+                <h:outputLabel class="registration1" value="Last Name:" for="lastName"/>
+                <h:inputText class="registration1" id="lastName" label="Last Name"
+                             required="true"  
+                             value="#{olderAdultRegistration.olderadult.lastname}" />
+                <h:message for="lastName" />
+                <h:outputLabel class="registration1" for="email" value="Email Address:"/> 
+                <h:inputText class="registration1" id="email" label="Email Address"
+                             required="true"
+                             p:placeholder="username@example.com"
+                             value="#{olderAdultRegistration.olderadult.email}">
+                    <f:validator validatorId="emailValidator"/> 
+                </h:inputText>
+                 <h:message for="email" />
+                
+            </h:panelGrid>
+            <h:commandButton class="registrationButton" id="continue" value="Continue"
+                                 action="registration-page2" />
+        </h:form>
+        <!--        <h:link outcome="/student/List" value="Show All Student Items"/>-->
+    </h:body>
+
+</html>
+

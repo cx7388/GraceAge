@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Bulletin</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:dataTable var="b" value ="#{writeBulletin.bulletinList}"
+                         border="1" cellpadding="3" cellspacing="2">
+                <h:column>
+                    <f:facet name ="header">Time</f:facet>
+                    <h:outputText value="#{b.time}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name ="header">Publisher</f:facet>
+                    <h:outputText value="#{b.publisher}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name ="header">Content</f:facet>
+                    <h:outputText value="#{b.content}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name ="header">Option</f:facet>
+                    <h:commandLink value="Delete" action="#{writeBulletin.deleteBulletin(b.bulletinid)}"
+                                   onclick="return confirm('Are you sure?')"></h:commandLink>
+                </h:column>
+            </h:dataTable>
+            <h3>Write a new bulletin</h3>
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Content:" for="content" /> 
+                <h:inputTextarea  id="content" 
+                                  a:maxlength="255" cols="40" rows="10"
+                                  value="#{writeBulletin.content}" />
+                <h:message for="content" />
+                <h:commandButton id="publish" value="Publish"
+                                 action="#{writeBulletin.publish()}" />
+            </h:panelGrid>
+        </h:form>
+        <h:form>
+            <h:commandLink action="homepage">
+                <h:outputText value="Go to homepage"/>
+            </h:commandLink>
+        </h:form>  
+    </h:body>
+</html>
+

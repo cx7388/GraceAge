@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head>
+        <title>Caregiver Login</title>
+        <h:outputStylesheet name="css/cglogin.css"/>
+        <f:metadata>
+          <f:viewAction action="#{cglogin.isLoggedInForwardHome()}" />
+        </f:metadata>
+    </h:head>
+    <h:body style="background-image:url(resources/image/elder.jpg)">
+        
+        <p:growl id="growl" sticky="true" showDetail="true"/>
+        <h:form>
+            <p:panelGrid class="Panelgrid" columns="2" >
+                <h:outputLabel class="label1" value="User Name:" for="username"   /> 
+                <p:inputText id="username" label="User Name"
+                             required="true"
+                             value="#{cglogin.username}" />             
+                <h:outputLabel class="label1" value="Password:" for="password"/>
+                <p:password  id="password" label="Password"
+                             required="true"  
+                             value="#{cglogin.password}" />         
+                </p:panelGrid>
+            
+             <h:commandButton class="loginButton" id="login" value="Login"
+                                 action="#{cglogin.login}" />
+        </h:form>
+    </h:body>
+</html>
+

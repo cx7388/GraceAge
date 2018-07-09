@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <!--xmlns:p="http://primefaces.org/ui">-->
+    <h:head>
+        <title>Welcome</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>   
+        <h:form>
+            <h:commandLink action="registration">
+                <h:outputText class="showtext" value="Begin Registration"/>
+            </h:commandLink>
+        </h:form>
+        <h:form>
+            <h:commandLink action="roster">
+                <h:outputText class="showtext" value="Roster"/>
+            </h:commandLink>
+        </h:form>
+        <h:form>
+            <h:commandLink action="#{writeNote.goToNotebook(cglogin.caregiver)}">
+                <h:outputText class="showtext" value="Manage Notebook"/>
+            </h:commandLink>
+        </h:form>  
+                <h:form>
+                    <h:commandLink action="#{writeBulletin.goToBulletin(cglogin.caregiver)}">
+                <h:outputText class="showtext" value="Bulletin"/>
+            </h:commandLink>
+        </h:form>  
+                <h:form>
+            <h:commandLink action="#{cglogin.logout()}">
+                <h:outputText class="showtext" value="Log out"/>
+            </h:commandLink>
+        </h:form> 
+        <h:outputText class="showtext"  value="Online Caregiver Number: "></h:outputText>
+        <h:outputText class="showtext"  value="#{cglogin.loginCounter.count}"></h:outputText>
+        
+        
+    </h:body>  
+</html>
+

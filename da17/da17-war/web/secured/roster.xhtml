@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+    <h:head>
+        <title>Roster</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:dataTable var="o" value ="#{roster.getOlders()}"
+                         border="1" cellpadding="3" cellspacing="2">
+                <h:column>
+                    <f:facet name ="header">ID</f:facet>
+                    <h:outputText value="#{o.olderid}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name ="header">First Name</f:facet>
+                    <h:outputText value="#{o.firstname}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name ="header">Last Name</f:facet>
+                    <h:outputText value="#{o.lastname}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name ="header">Email</f:facet>
+                    <h:outputText value="#{o.email}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name ="header">Address</f:facet>
+                    <h:outputText value="#{o.address}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name ="header">City</f:facet>
+                    <h:outputText value="#{o.city}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name ="header">Zip</f:facet>
+                    <h:outputText value="#{o.zip}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name ="header">Dorm Building</f:facet>
+                    <h:outputText value="#{o.dorm.building}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name ="header">Dorm Floor</f:facet>
+                    <h:outputText value="#{o.dorm.floor}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name ="header">Dorm Number</f:facet>
+                    <h:outputText value="#{o.dorm.number}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name ="header">Option</f:facet>
+                    <h:commandLink value="Service" action="#{serviceList.gotoServicePage(o)}"></h:commandLink>|
+                    <h:commandLink value="Phone" action="#{phoneList.getPhoneList(o)}"></h:commandLink>|
+                    <h:commandLink value="Delete" action="#{roster.deleteOlder(o)}"
+                                   onclick="return confirm('Are you sure?')"></h:commandLink>|
+                    <h:commandLink value="Edit" action="#{roster.goToEdit(o)}"></h:commandLink>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        <h:form>
+            <h:commandLink action="homepage">
+                <h:outputText value="Home"/>
+            </h:commandLink>
+        </h:form>
+    </h:body>
+</html>
+

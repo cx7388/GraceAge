@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Notebook</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:dataTable var="n" value ="#{writeNote.notebook}"
+                         border="1" cellpadding="3" cellspacing="2">
+                <h:column>
+                    <f:facet name ="header">Note Time</f:facet>
+                    <h:outputText value="#{n.time}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name ="header">Note Content</f:facet>
+                    <h:outputText value="#{n.content}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name ="header">Option</f:facet>
+                    <h:commandLink value="Delete" action="#{writeNote.deleteNote(n.noteid)}"
+                                   onclick="return confirm('Are you sure?')"></h:commandLink>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        <h:form>
+            <h:commandLink action="writeNote">
+                <h:outputText value="Write a new note"/>
+            </h:commandLink>
+        </h:form>
+        <h:form>
+            <h:commandLink action="homepage">
+                <h:outputText value="Go to homepage"/>
+            </h:commandLink>
+        </h:form>       
+    </h:body>
+</html>
+

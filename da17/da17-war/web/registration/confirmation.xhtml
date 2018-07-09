@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Confirmation Page</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <h2>Confirmation Page</h2>
+        <h4>Personal Information</h4>
+        <h:panelGrid columns="2" 
+                     columnClasses="rightalign-bold,leftalign">
+            <h:outputText value="First Name:"/>
+            ${olderAdultRegistration.olderadult.firstname}
+            <h:outputText value="Last Name:"/>
+            ${olderAdultRegistration.olderadult.lastname}
+            <h:outputText value="Email Address:"/>
+            ${olderAdultRegistration.olderadult.email}
+        </h:panelGrid>
+        <h4>Address Information</h4>
+        <h:panelGrid columns="2" 
+                     columnClasses="rightalign-bold,leftalign">
+            <h:outputText value="Address:"/>
+            ${olderAdultRegistration.olderadult.address}
+            <h:outputText value="City:"/>
+            ${olderAdultRegistration.olderadult.city}
+            <h:outputText value="Zip:"/>
+            ${olderAdultRegistration.olderadult.zip}
+        </h:panelGrid>
+        <h4>Dorm Information</h4>
+        <h:panelGrid columns="2" 
+                     columnClasses="rightalign-bold,leftalign">
+            <h:outputText value="Building:"/>
+            ${olderAdultRegistration.dorm.building}
+            <h:outputText value="Floor:"/>
+            ${olderAdultRegistration.dorm.floor}
+            <h:outputText value="Number:"/>
+            ${olderAdultRegistration.dorm.number}
+        </h:panelGrid>
+        <h:form>
+            <h:panelGroup>
+                <h:commandButton value="Continue" action="#{olderAdultRegistration.navigateToConfirmation}"/>
+                &#160;
+                <h:commandButton value="Go Back" action="registration-page2"/>
+<!--
+                  &#160;
+                <h:commandButton value="Cancel" action="registration-return"/>-->
+            </h:panelGroup>
+        </h:form>
+    </h:body>
+
+</html>
+

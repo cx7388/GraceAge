@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Manage Phone</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:dataTable var="p" value ="#{phoneList.getPhoneList()}"
+                         border="1" cellpadding="3" cellspacing="2">
+                <h:column>
+                    <f:facet name ="header">Phone Number</f:facet>
+                    <h:outputText value="#{p.number}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name ="header">Option</f:facet>
+                    <h:commandLink value="Delete" action="#{phoneList.deleteNumber(p.telephoneid)}"
+                                   onclick="return confirm('Are you sure?')"></h:commandLink>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        <h:form>
+            <h3>Create New Telephone Number</h3>
+            <h:panelGrid columns="2">
+                <h:outputLabel for="telenum" value="New phone number"/> 
+                <h:inputText id="telenum" label="Telephone Number"
+                             required="true"
+                             value="#{phoneList.number}"/>
+                <h:panelGroup/>
+                <h:commandButton id="add" value="Add"
+                                 action="#{phoneList.addNewNumber}" />
+            </h:panelGrid>
+        </h:form>
+        <h:form>
+            <h:commandLink action="roster">
+                <h:outputText value="Go back to roster"/>
+            </h:commandLink>
+        </h:form>
+    </h:body>
+</html>
+
